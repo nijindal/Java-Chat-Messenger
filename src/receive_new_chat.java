@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -29,12 +31,13 @@ import org.jivesoftware.smack.packet.Message;
 		String to = null,tos;
 		new_chat link = null;
 		int count=0;
-		String prin = "";
+		String print = "";
+		String signal;
 
 		public receive_new_chat(String msg, Chat chat){
-
-			prin += msg + "\n";
-
+			
+			signal = new String();
+			print += msg + "\n";
 			receipient = chat.getParticipant();
 			this.chat = chat;
 			start();
@@ -44,7 +47,7 @@ import org.jivesoftware.smack.packet.Message;
 		public void run(){
 
 			dabba();
-			text.append(chat.getParticipant() + ":  "  + prin + "\n");
+			text.append(chat.getParticipant() + ":  "  + print + "\n");
 		}
 
 		public void dabba(){
@@ -70,12 +73,21 @@ import org.jivesoftware.smack.packet.Message;
 			textarea.addActionListener(new sendchat());
 			frame_chat.setSize(350,300);
 			frame_chat.setVisible(true);
+			signal = "BOX_OPEN";
+			
+			frame_chat.addWindowListener(new WindowAdapter(){
+				  public void windowClosing(WindowEvent we){
+//			the chat box is closed, so we need  to set the msg to BOX_IS_CLOSED....
+					  signal = "BOX_CLOSED"; 
+					  
+				  }
+				  });
 
 
 		}
 
 		public void processMessage(Chat chat, Message msg) {
-			if(msg.getBody().equalsIgnoreCase(""))
+			if(msg.getBody().equalsIgnoreCase("") || signal.equals("BOX_CLOSED"))
 				dabba();
 			System.out.print("in the process message of receive");
 
