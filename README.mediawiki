@@ -1,0 +1,30 @@
+==''Current Progress''==
+*It uses XMPP protocol for the chat application which is a open source protocol used by many services e.g., IM on Gtalk, fb chat .
+*Coding part is done in Java using the open source Smack APIs, <a href="http://goo.gl/NI5P2">"http://goo.gl/NI5P2"</a> . 
+*The application uses multithreading programming, having independent threads for separate chats. Multithreading makes it more robust and responsive.
+*It is capable of sending file over the same chat client.
+*GUI is developed using the the swing in JAVA.
+*Provides a good understanding of Event Handling used in many real world projects.
+
+==''For future''==
+*Future works focus on the better File sending capabilities and VOIP services.
+*Thinking of adding support for multiple protocols on a single messenger.
+
+
+=='''Here are some Screenshots'''==
+
+===''Login Page''===
+----
+<a href="http://imgur.com/3YnyJ"><img src="http://i.imgur.com/3YnyJ.png" title="Hosted by imgur.com" /></a>
+
+===''Buddy List Preview''===
+----
+<a href="http://imgur.com/Fbvmg"><img src="http://i.imgur.com/Fbvmg.png" title="Hosted by imgur.com" /></a>
+
+===''chat Screenshot''===
+</br>
+<a href="http://imgur.com/SNCry"><img src="http://i.imgur.com/SNCry.png" title="Hosted by imgur.com" /></a>
+
+</br>
+</br>
+<a href="http://imgur.com/Icptp"><img src="http://i.imgur.com/Icptp.png" title="Hosted by imgur.com" /></a>
